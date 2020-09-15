@@ -2,18 +2,28 @@
   "name": "match-highlight-texts",
   "version": "1.0.0",
   "description": "Highlight the matched words",
-  "main": "index.js",
+  "main": "dist/index.js",
   "type": "module",
   "engines": {
     "node": ">= 10",
     "npm": ">= 6"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dingq84/match-hightlight-texts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dingq84/match-hightlight-texts/issues"
+  },
+  "homepage": "https://github.com/dingq84/match-hightlight-texts#readme",
   "scripts": {
-    "dev": " node ./src/index.ts",
     "build": "webpack --mode=production --config ./webpack.config.cjs",
     "test": "jest test"
   },
-  "keywords": ["match", "highlight", "texts", "fuzzy search"],
+  "keywords": ["match", "highlight", "texts", "fuzzy search", "regex"],
+  "files": [
+    "dist"
+  ],
   "author": "Ding Chen",
   "license": "MIT",
   "devDependencies": {

@@ -8,7 +8,7 @@ const config = {
   },
   output: {
     path: resolve("dist"),
-    filename: "index.min.js",
+    filename: "index.js",
   },
   module: {
     rules: [

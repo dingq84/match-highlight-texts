@@ -7,7 +7,7 @@ type mainProps = (text: string, query: string, delimiter?: string) => Result[];
 type parseProps = (text: string, queryList: string[]) => Result[];
 
 const main: mainProps = (text, query, delimiter = " ") =>
-  parse(text, query.split(delimiter));
+  parse(text, query.replace(/\?|\*|\(|\||\[|\^|\.|\+|\)|\]|\$/g, '').split(delimiter));
 
 const parse: parseProps = (text, queryList) => {
   if (text === "") {

@@ -32,4 +32,22 @@ describe("MatchHighLight testing", () => {
       { item: "gh words", highlight: false },
     ]);
   });
+
+  it('No any word is matched', () => {
+    const text = "Hello world, I am match highligh words";
+    const query = "you";
+    expect(matchHighLight(text, query)).toEqual([
+      { item: "Hello world, I am match highligh words", highlight: false }
+    ]);
+  });
+
+  it('There are special characters in query, it will be removed', () => {
+    const text = "Hello world, I am match highligh words";
+    const query = "?*(world(";
+    expect(matchHighLight(text, query)).toEqual([
+      { item: "Hello ", highlight: false },
+      { item: "world", highlight: true },
+      { item: ", I am match highligh words", highlight: false },
+    ]);
+  });
 });
