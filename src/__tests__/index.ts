@@ -25,7 +25,7 @@ describe("MatchHighLight testing", () => {
   it("The delimiter is comma", () => {
     const text = "Hello world, I am match highligh words";
     const query = "hello,li";
-    expect(matchHighLight(text, query, ",")).toEqual([
+    expect(matchHighLight(text, query, { delimiter: "," })).toEqual([
       { item: "Hello", highlight: true },
       { item: " world, I am match high", highlight: false },
       { item: "li", highlight: true },
@@ -33,21 +33,29 @@ describe("MatchHighLight testing", () => {
     ]);
   });
 
-  it('No any word is matched', () => {
+  it("No any word is matched", () => {
     const text = "Hello world, I am match highligh words";
     const query = "you";
     expect(matchHighLight(text, query)).toEqual([
-      { item: "Hello world, I am match highligh words", highlight: false }
+      { item: "Hello world, I am match highligh words", highlight: false },
     ]);
   });
 
-  it('There are special characters in query, it will be removed', () => {
+  it("There are special characters in query, it will be removed", () => {
     const text = "Hello world, I am match highligh words";
     const query = "?*(world(";
     expect(matchHighLight(text, query)).toEqual([
       { item: "Hello ", highlight: false },
       { item: "world", highlight: true },
       { item: ", I am match highligh words", highlight: false },
+    ]);
+  });
+
+  it("If the caseSensitive is true, it will exactly match the word", () => {
+    const text = "Hello world, I am match highligh words";
+    const query = "HELLO WORLD";
+    expect(matchHighLight(text, query, { caseSensitive: true })).toEqual([
+      { item: "Hello world, I am match highligh words", highlight: false },
     ]);
   });
 });

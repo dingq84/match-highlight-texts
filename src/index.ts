@@ -3,13 +3,27 @@ type Result = {
   highlight: Boolean;
 };
 
-type mainProps = (text: string, query: string, delimiter?: string) => Result[];
-type parseProps = (text: string, queryList: string[]) => Result[];
+type mainProps = (
+  text: string,
+  query: string,
+  options?: { delimiter?: string; caseSensitive?: boolean }
+) => Result[];
+type parseProps = (
+  text: string,
+  queryList: string[],
+  options?: { delimiter?: string; caseSensitive?: boolean }
+) => Result[];
 
-const main: mainProps = (text, query, delimiter = " ") =>
-  parse(text, query.replace(/\?|\*|\(|\||\[|\^|\.|\+|\)|\]|\$/g, '').split(delimiter));
+const main: mainProps = (text, query, options = {}) =>
+  parse(
+    text,
+    query
+      .replace(/\?|\*|\(|\||\[|\^|\.|\+|\)|\]|\$/g, "")
+      .split(options.delimiter ?? " "),
+    options
+  );
 
-const parse: parseProps = (text, queryList) => {
+const parse: parseProps = (text, queryList, options = {}) => {
   if (text === "") {
     return [];
   }
@@ -19,12 +33,18 @@ const parse: parseProps = (text, queryList) => {
     return [{ item: text, highlight: false }];
   }
 
-  const regExp = new RegExp(query, "ig");
+  const regExpFlag = [];
+
+  if (!options?.caseSensitive) {
+    regExpFlag.push("i");
+  }
+
+  const regExp = new RegExp(query, regExpFlag.join(""));
   const matches = Array.from(text.matchAll(regExp), (match) => match[0]);
   return text
     .split(regExp)
     .map((item, index, itemArray) => {
-      const result = parse(item, [...queryList]);
+      const result = parse(item, [...queryList], options);
       if (index === itemArray.length - 1) {
         return result;
       }
