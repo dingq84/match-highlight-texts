@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dingq84/match-hightlight-texts.git"
+    "url": "https://github.com/dingq84/match-highlight-texts.git"
   },
   "bugs": {
-    "url": "https://github.com/dingq84/match-hightlight-texts/issues"
+    "url": "https://github.com/dingq84/match-highlight-texts/issues"
   },
-  "homepage": "https://github.com/dingq84/match-hightlight-texts#readme",
+  "homepage": "https://github.com/dingq84/match-highlight-texts#readme",
   "scripts": {
     "build": "webpack --mode=production --config ./webpack.config.cjs",
     "test": "jest test"
@@ -24,7 +24,7 @@
   "files": [
     "dist"
   ],
-  "author": "Ding Chen",
+  "author": "Dean Chen",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.11.6",
