@@ -39,7 +39,7 @@ const parse: parseProps = (text, queryList, options = {}) => {
     regExpFlag.push("i");
   }
 
-  const regExp = new RegExp(query, regExpFlag.join(""));
+  const regExp = new RegExp(query, regExpFlag.join("g"));
   const matches = Array.from(text.matchAll(regExp), (match) => match[0]);
   return text
     .split(regExp)
