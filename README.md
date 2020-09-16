@@ -13,7 +13,7 @@
 
 ## Usage
 ```javascript
-  import matchHighlightTexts from 'match-highlight-texts
+  import matchHighlightTexts from "match-highlight-texts"
   
   const list = "Hello world, this is match-highlight-texts"
   const query = "world light"
