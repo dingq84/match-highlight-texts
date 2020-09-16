@@ -58,4 +58,12 @@ describe("MatchHighLight testing", () => {
       { item: "Hello world, I am match highligh words", highlight: false },
     ]);
   });
+
+  it('The text is empty', () => {
+    expect(matchHighLight('', 'something')).toEqual([])
+  });
+
+  it('The query is empty', () => {
+    expect(matchHighLight('something', '')).toEqual([{ item: 'something', highlight: false }])
+  });
 });
