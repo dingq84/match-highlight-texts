@@ -33,13 +33,13 @@ const parse: parseProps = (text, queryList, options = {}) => {
     return [{ item: text, highlight: false }];
   }
 
-  const regExpFlag = [];
+  const regExpFlag = ['g'];
 
   if (!options?.caseSensitive) {
     regExpFlag.push("i");
   }
 
-  const regExp = new RegExp(query, regExpFlag.join("g"));
+  const regExp = new RegExp(query, regExpFlag.join(""));
   const matches = Array.from(text.matchAll(regExp), (match) => match[0]);
   return text
     .split(regExp)
