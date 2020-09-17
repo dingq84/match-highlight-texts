@@ -1,21 +1,23 @@
-const { resolve } = require("path");
-const webpack = require("webpack");
+const path = require("path");
+const fs = require("fs");
 const TerserPlugin = require("terser-webpack-plugin");
 
+const appDirectory = fs.realpathSync(process.cwd());
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+
 const config = {
-  entry: {
-    main: resolve("./src/index.ts"),
-  },
+  entry: resolveApp("./src/index.ts"),
+  target: "node",
+  mode: "production",
   output: {
-    path: resolve("dist"),
+    path:resolveApp("dist"),
     filename: "index.js",
   },
   module: {
     rules: [
       {
-        test: /\.ts?$/,
-        loader: ["awesome-typescript-loader?module=es6"],
-        exclude: [/node_modules/],
+        test: /\.ts$/,
+        loader: "awesome-typescript-loader",
       },
     ],
   },

@@ -19,7 +19,7 @@ const main: mainProps = (text, query, options = {}) =>
     text,
     query
       .replace(/\?|\*|\(|\||\[|\^|\.|\+|\)|\]|\$/g, "")
-      .split(options.delimiter ?? " "),
+      .split(options.delimiter ? options.delimiter: " "),
     options
   );
 
@@ -35,7 +35,7 @@ const parse: parseProps = (text, queryList, options = {}) => {
 
   const regExpFlag = ['g'];
 
-  if (!options?.caseSensitive) {
+  if (!options.caseSensitive) {
     regExpFlag.push("i");
   }
 
