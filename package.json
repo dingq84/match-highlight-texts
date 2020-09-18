@@ -1,6 +1,6 @@
 {
   "name": "match-highlight-texts",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Highlight the matched words",
   "main": "dist/index.js",
   "type": "module",
