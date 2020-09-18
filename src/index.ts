@@ -8,6 +8,7 @@ type mainProps = (
   query: string,
   options?: { delimiter?: string; caseSensitive?: boolean }
 ) => Result[];
+
 type parseProps = (
   text: string,
   queryList: string[],
@@ -19,7 +20,7 @@ const main: mainProps = (text, query, options = {}) =>
     text,
     query
       .replace(/\?|\*|\(|\||\[|\^|\.|\+|\)|\]|\$/g, "")
-      .split(options.delimiter ? options.delimiter: " "),
+      .split(options.delimiter ? options.delimiter : " "),
     options
   );
 
@@ -33,7 +34,7 @@ const parse: parseProps = (text, queryList, options = {}) => {
     return [{ item: text, highlight: false }];
   }
 
-  const regExpFlag = ['g'];
+  const regExpFlag = ["g"];
 
   if (!options.caseSensitive) {
     regExpFlag.push("i");
