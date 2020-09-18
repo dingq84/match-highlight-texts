@@ -7,6 +7,8 @@
 <p>No matter what JavaScript-based framework you use, you can always use this package to highlight words entered by the user.</p>
 </div>
 
+<a href="https://codesandbox.io/s/upbeat-meitner-hifbd" target="_blank" rel="no-referrer">DEMO</a>
+
 ## Installation
 
 ```
