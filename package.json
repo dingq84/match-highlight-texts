@@ -18,7 +18,7 @@
   "homepage": "https://github.com/dingq84/match-highlight-texts#readme",
   "scripts": {
     "build": "webpack --config ./webpack.config.cjs",
-    "test": "jest test"
+    "test": "jest test --coverage"
   },
   "keywords": [
     "match",
