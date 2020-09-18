@@ -15,7 +15,7 @@ type parseProps = (
   options?: { delimiter?: string; caseSensitive?: boolean }
 ) => Result[];
 
-const main: mainProps = (text, query, options = {}) =>
+export const matcher: mainProps = (text, query, options = {}) =>
   parse(
     text,
     query
@@ -30,6 +30,7 @@ const parse: parseProps = (text, queryList, options = {}) => {
   }
 
   const query = queryList.shift();
+
   if (query === undefined || query === "") {
     return [{ item: text, highlight: false }];
   }
@@ -58,5 +59,3 @@ const parse: parseProps = (text, queryList, options = {}) => {
       return accumulate;
     }, []);
 };
-
-export default main;

@@ -16,7 +16,10 @@ const config = {
     rules: [
       {
         test: /\.ts$/,
-        loader: "awesome-typescript-loader",
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-typescript"],
+        },
       },
     ],
   },
