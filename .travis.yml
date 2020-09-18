@@ -8,7 +8,8 @@ node_js:
   - node
 install: npm install
 script:
- - npm run test
+  - npm run test
+  - npx codecov@3
 branches:
   only:
     - master
