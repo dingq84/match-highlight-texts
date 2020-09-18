@@ -1,11 +1,11 @@
 {
   "name": "match-highlight-texts",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Highlight the matched words",
   "main": "dist/index.js",
   "type": "module",
   "engines": {
-    "node": ">= 10",
+    "node": ">= 12",
     "npm": ">= 6"
   },
   "repository": {
@@ -20,7 +20,13 @@
     "build": "webpack --config ./webpack.config.cjs",
     "test": "jest test"
   },
-  "keywords": ["match", "highlight", "texts", "fuzzy search", "regex"],
+  "keywords": [
+    "match",
+    "highlight",
+    "texts",
+    "fuzzy search",
+    "regex"
+  ],
   "files": [
     "dist"
   ],
