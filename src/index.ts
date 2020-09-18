@@ -12,7 +12,7 @@ type mainProps = (
 type parseProps = (
   text: string,
   queryList: string[],
-  options?: { delimiter?: string; caseSensitive?: boolean }
+  options: { delimiter?: string; caseSensitive?: boolean }
 ) => Result[];
 
 export const matcher: mainProps = (text, query, options = {}) =>
@@ -24,7 +24,7 @@ export const matcher: mainProps = (text, query, options = {}) =>
     options
   );
 
-const parse: parseProps = (text, queryList, options = {}) => {
+const parse: parseProps = (text, queryList, options) => {
   if (text === "") {
     return [];
   }
