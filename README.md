@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/dingq84/match-highlight-texts.svg?branch=master)](https://travis-ci.org/dingq84/match-highlight-texts)
 [![MIT License](https://img.shields.io/npm/l/match-sorter.svg?style=flat-square)](https://github.com/kentcdodds/match-sorter/blob/master/other/LICENSE)
-
+[![codecov](https://codecov.io/gh/dingq84/match-highlight-texts/branch/master/graph/badge.svg)](https://codecov.io/gh/dingq84/match-highlight-texts)
+![npm](https://img.shields.io/npm/v/match-highlight-texts)
 <div>
 <h1>match-highlight-texts</h1>
 <p>No matter what JavaScript-based framework you use, you can always use this package to highlight words entered by the user.</p>
